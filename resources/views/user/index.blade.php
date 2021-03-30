@@ -126,5 +126,7 @@
 
     <hr>
 
+    <hr>
+
 
 @endsection
