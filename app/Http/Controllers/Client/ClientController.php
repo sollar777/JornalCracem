@@ -11,4 +11,9 @@ class ClientController extends Controller
     {
         return view('user.index');
     }
+
+    public function store($id)
+    {
+        return view('user.noticia');
+    }
 }

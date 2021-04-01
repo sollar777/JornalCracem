@@ -24,8 +24,7 @@ RUN apt install -y libxml2-dev \
     && docker-php-ext-install tokenizer \
     && docker-php-ext-install json \
     && docker-php-ext-install -j$(nproc) intl \
-    && docker-php-ext-install mbstring \
-    && docker-php-ext-install openssl
+    && docker-php-ext-install mbstring
     
 ## IMAP para configuracoes de email
 RUN apt install -y libc-client-dev libkrb5-dev && rm -r /var/lib/apt/lists/*
@@ -39,17 +38,3 @@ RUN docker-php-ext-configure zip --with-libzip \
 
 # Enable apache modules
 RUN a2enmod rewrite headers
-
-# # Add user for laravel application
-#RUN groupadd -g 1000 www
-#RUN useradd -u 1000 -ms /bin/bash -g www www
-
-# # Copy existing application directory contents
-# COPY . /var/www
-
-# # Copy existing application directory permissions
-# COPY src /var/www/
-RUN chown -R www-data:www-data /var/www
-
-# # Change current user to www
-#USER www

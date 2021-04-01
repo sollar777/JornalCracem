@@ -22,7 +22,8 @@ use Illuminate\Support\Facades\Route;
  */
 
  
-Route::get('/', [ClientController::class, 'index'])->name('index');
+Route::get('/', [ClientController::class, 'index'])->name('user.index');
+Route::get('/exibir/{id}', [ClientController::class, 'store'])->name('user.exibir');
 
 Auth::routes();
 
