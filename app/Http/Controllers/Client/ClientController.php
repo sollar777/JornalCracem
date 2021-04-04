@@ -16,4 +16,14 @@ class ClientController extends Controller
     {
         return view('user.noticia');
     }
+
+    public function exibirAll()
+    {
+        return view('user.listas_noticias');
+    }
+
+    public function gataExibir()
+    {
+        return view('user.gatamangaba');
+    }
 }

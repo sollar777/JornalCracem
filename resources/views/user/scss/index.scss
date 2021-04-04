@@ -1,3 +1,17 @@
+p{
+    margin: 0;
+    text-indent: 2em;
+    padding: 0;
+    line-height: normal;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media(max-width: 780px){
+    p{
+        font-size: max(12px, 2vw);
+    }
+}
+
 #index{
    margin-top: 0.1rem; 
    margin-bottom: 0.5rem;

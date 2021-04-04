@@ -1,0 +1,14 @@
+#img-noticias-all{
+    width: 98%;
+    height: 98%;
+}
+
+.div-noticias-all h3, p{
+    text-align: left;
+}
+
+@media(max-width: 780px){
+    .div-noticias-all h3{
+        font-size: 18px;
+    }
+}

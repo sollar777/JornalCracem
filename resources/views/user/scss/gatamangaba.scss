@@ -1,0 +1,66 @@
+.img-gata-principal{
+    width: 100%;
+}
+
+.img-gata-principal img{
+    width: 100%;
+    height:auto;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+
+// .img-gata-principal p{
+//     display: inline-block;
+//     width: 35%;
+//     margin-top: 1%;
+//     vertical-align: top;
+//     font-size: 2vw;
+//     text-align: justify;
+// }
+
+// @media(max-width: 780px){
+//     .img-gata-principal img{
+//         width: 98%;
+//         display:block;
+//         margin: 2%;
+//         vertical-align: top;
+//     }
+
+//     // .img-gata-principal p{
+//     //     position: relative;
+//     //     width: 96%;
+//     //     margin: 2%;
+//     //     top: 5%;
+//     //     vertical-align: top;
+//     //     font-size: max(12px, 2vw);
+//     // }
+// }
+
+#janelaModal{
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    overflow: auto;
+}
+#imgModal{
+    margin: auto;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+}
+#btFechar{
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
