@@ -23,15 +23,25 @@
 
 <body>
 
+    <div class="dateNow">
+        <span>
+            @php
+                $mytime = Carbon\Carbon::now();
+                echo $mytime->format('j \\d\\e F \\d\\e Y');
+            @endphp
+        </span>
+    </div>
+
     {{-- o cabeçário com a imagem --}}
 
     <header>
-        <div class="div-header">
-            <div id="image-cabecalho">
-                <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagen Responsiva">
-            </div>
-        </div>
+            <div class="div-header">
+                <div id="image-cabecalho">
+                    <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagen Responsiva">
+                </div>
+            </div> 
     </header>
+
 
     <nav>
         <input type="checkbox" name="" id="sidebar-toggle">

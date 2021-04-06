@@ -93,12 +93,19 @@ header{
     height: 150px;
 }
 
+.dateNow{
+    background: chartreuse;
+    margin-top: 1rem;
+    padding: 0 1rem;
+    text-align: right;
+}
+
+
 main{
     background: #f1f5f9;
     min-height: 90vh;
     padding: 1rem;
 }
-
 
 .main-container{
     position: relative;

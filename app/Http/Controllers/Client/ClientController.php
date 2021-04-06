@@ -30,5 +30,6 @@ class ClientController extends Controller
     public function social()
     {
         return view('user.social');
+
     }
 }
