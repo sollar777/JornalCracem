@@ -3,7 +3,7 @@
 @section('content')
 
     <div id="h3-noticias">
-        <h3>Principais Noticias</h3>
+        <span>Principais Noticias</span>
     </div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -37,99 +37,104 @@
         </a>
     </div>
 
-    <hr>
+    <div class="div-index-border">
 
-    <div id="index-h3-politica">
-        <h3>Política</h3>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 25rem;">
-                <div class="card-header">
-                    <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards
-                        content.</p>
-                </div>
-            </div>    
+        <div id="index-h3-politica">
+            <span>Política</span>
         </div>
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 25rem;">
-                <div class="card-header">
-                    <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards
-                        content.</p>
-                </div>
-            </div>    
-        </div>
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 25rem;">
-                <div class="card-header">
-                    <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards
-                        content.</p>
-                </div>
-            </div>    
-        </div>
-    </div>
 
-
-    <hr>
-
-    <div id="index-h3-esportes">
-        <h3>Esportes</h3>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 25rem;">
-                <div class="card-header">
-                    <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
+        <div class="row div-index-noticias">
+            <div class="col-md-4">
+                <div class="card bg-light mb-3" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            cards
+                            content.</p>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards
-                        content.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-light mb-3" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            cards
+                            content.</p>
+                    </div>
                 </div>
-            </div>    
-        </div>
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 25rem;">
-                <div class="card-header">
-                    <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-light mb-3" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            cards
+                            content.</p>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards
-                        content.</p>
-                </div>
-            </div>    
-        </div>
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 25rem;">
-                <div class="card-header">
-                    <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards
-                        content.</p>
-                </div>
-            </div>    
+            </div>
         </div>
     </div>
 
-    <hr>
-    
+
+    <div class="div-index-border">
+
+        <div id="index-h3-esportes">
+            <span>Esportes</span>
+        </div>
+
+        <div class="row div-index-noticias">
+            <div class="col-md-4">
+                <div class="card bg-light mb-3" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            cards
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-light mb-3" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            cards
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-light mb-3" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            cards
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 @endsection

@@ -2,30 +2,42 @@
 
 @section('content')
 
-    <div class="" id="div-dados-gataMangaba">
-        <p><span>Nome:</span> Nome teste</p>
-        <p><span>Profissão:</span> profissão teste teste</p>
+    <div class="div-index-border">
+
+        <div class="div-grit-gata">
+            <div class="div-dados-gataMangaba">
+                <span>Dados</span>
+                <p> Nome teste, tenho robbin de viajar pelo mundo para conhecer todos os paises. Quero me formar em direito.</p>
+            </div>
+            <div class="div-img-top-gata">
+                <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagen Responsiva">
+            </div>
+        </div>
     </div>
 
-    <hr>
     <br>
 
-    <div class="row">
-        <div class="img-gata-principal col-md-4">
-            <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagem responsiva"
-                onclick="clique('{{ env('APP_URL') }}/storage/client/imagem/teste.jpg')">
+    <div class="div-index-border">
+
+        <div class="div-gata-titulo-fotos">
+            <span>Galeria de Fotos</span>
         </div>
-        <div class="img-gata-principal col-md-4">
-            <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagem responsiva"
-                onclick="clique('{{ env('APP_URL') }}/storage/client/imagem/teste.jpg')">
-        </div>
-        <div class="img-gata-principal col-md-4">
-            <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagem responsiva"
-                onclick="clique('{{ env('APP_URL') }}/storage/client/imagem/teste.jpg')">
+        <div class="row div-fotos-gata">
+            <div class="img-gata-principal col-md-4">
+                <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagem responsiva"
+                    onclick="clique('{{ env('APP_URL') }}/storage/client/imagem/teste.jpg')">
+            </div>
+            <div class="img-gata-principal col-md-4">
+                <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagem responsiva"
+                    onclick="clique('{{ env('APP_URL') }}/storage/client/imagem/teste.jpg')">
+            </div>
+            <div class="img-gata-principal col-md-4">
+                <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagem responsiva"
+                    onclick="clique('{{ env('APP_URL') }}/storage/client/imagem/teste.jpg')">
+            </div>
         </div>
     </div>
-
-    <hr>
+    
     <br>
 
     <div id="janelaModal">

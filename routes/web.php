@@ -26,6 +26,7 @@ Route::get('/', [ClientController::class, 'index'])->name('user.index');
 Route::get('/exibir/noticias/{id}', [ClientController::class, 'store'])->name('user.exibir');
 Route::get('/exibir/noticias', [ClientController::class, 'exibirAll'])->name('user.noticias');
 Route::get('/exibir/gata-mangaba', [ClientController::class, 'gataExibir'])->name('user.gata');
+Route::get('/exibir/social', [ClientController::class, 'social'])->name('user.social');
 
 
 Auth::routes();

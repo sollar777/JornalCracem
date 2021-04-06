@@ -1,3 +1,42 @@
+#h3-noticias{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#h3-noticias span{
+    font-size: 2vw;
+}
+
+#index-h3-politica{
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#index-h3-politica span{
+    font-size: 2vw;
+}
+
+#index-h3-esportes{
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+#index-h3-esportes span{
+    font-size: 2vw;
+}
+
+.div-index-border{
+    border-bottom: 1px solid #808080;
+    -webkit-box-shadow: 0px 6px 5px -2px #808080; 
+    box-shadow: 0px 6px 5px -2px #808080;
+}
+
+.div-index-noticias{
+    padding: 1rem;
+}
+
 @media(max-width: 600px){
     #h3-noticias h3{
         font-size: 20px;

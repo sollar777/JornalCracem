@@ -23,12 +23,12 @@
 
 <body>
 
-    {{-- o cabeçãrio com a imagem --}}
+    {{-- o cabeçário com a imagem --}}
 
     <header>
         <div class="div-header">
             <div id="image-cabecalho">
-                <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg">
+                <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagen Responsiva">
             </div>
         </div>
     </header>
@@ -40,18 +40,23 @@
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href="" style="text-decoration: none">
+                        <a href="{{route('user.index')}}" style="text-decoration: none">
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="" style="text-decoration: none">
+                        <a href="{{route('user.noticias')}}" style="text-decoration: none">
                             <span>Noticias</span>
                         </a>
                     </li>
                     <li>
-                        <a href="" style="text-decoration: none">
+                        <a href="{{route('user.gata')}}" style="text-decoration: none">
                             <span>Gata Mangaba</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('user.social')}}" style="text-decoration: none">
+                            <span>Social</span>
                         </a>
                     </li>
                 </ul>
@@ -68,10 +73,12 @@
 
             {{-- div para os comerciais --}}
             <div class="div-anuncios-all">
-                <label> Anunciantes <label>
+                <span> Anunciantes </span>
                 <hr>
-                <div class="div-anuncios-single">
-                    <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg">
+                <div class="card bg-light mb-3" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,6 +87,18 @@
 
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
+
+    <script>
+
+        $(window).resize(function(){
+            var largura = $(window).width();
+
+            if (largura > 850) {
+               $('#sidebar-toggle').prop("checked", false)     
+            }
+        })
+
+    </script>
 
     @yield('script')
 

@@ -1,3 +1,28 @@
+.div-grit-gata{
+    display: grid;
+    grid-template-columns: 55% 40%;
+    column-gap: 3.3rem;
+    padding: 1rem;
+}
+
+.div-img-top-gata img{
+    width: 100%;
+    height: 240px;
+}
+
+.div-dados-gataMangaba{
+    text-align: center;
+}
+
+.div-dados-gataMangaba span{
+    font-size: 24px;
+}
+
+.div-dados-gataMangaba p{
+    margin-top: 1rem;
+}
+
+
 .img-gata-principal{
     width: 100%;
 }
@@ -9,32 +34,19 @@
     cursor: pointer;
 }
 
-// .img-gata-principal p{
-//     display: inline-block;
-//     width: 35%;
-//     margin-top: 1%;
-//     vertical-align: top;
-//     font-size: 2vw;
-//     text-align: justify;
-// }
+.div-gata-titulo-fotos{
+    text-align: center;
+    margin-bottom: 1rem;
+}
 
-// @media(max-width: 780px){
-//     .img-gata-principal img{
-//         width: 98%;
-//         display:block;
-//         margin: 2%;
-//         vertical-align: top;
-//     }
+.div-gata-titulo-fotos span{
+    font-size: 2vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
-//     // .img-gata-principal p{
-//     //     position: relative;
-//     //     width: 96%;
-//     //     margin: 2%;
-//     //     top: 5%;
-//     //     vertical-align: top;
-//     //     font-size: max(12px, 2vw);
-//     // }
-// }
+.div-fotos-gata{
+    padding: 1rem;
+}
 
 #janelaModal{
     position: fixed;
@@ -62,5 +74,35 @@
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+}
+
+@media(max-width: 1355px){
+    .div-grit-gata{
+        grid-template-columns: 55% 40%;
+        column-gap: 3rem;
+    }
+}
+
+@media(max-width: 1220px){
+    .div-grit-gata{
+        grid-template-columns: 55% 40%;
+        column-gap: 2.5rem;
+    }
+}
+
+@media(max-width: 1033px){
+    .div-grit-gata{
+        grid-template-columns: 55% 40%;
+        column-gap: 2rem;
+    }
+}
+
+@media(max-width: 765px){
+    .div-grit-gata{
+        display: block;
+    }
+    .div-img-top-gata img{
+        height: auto;
+    }
 }
 

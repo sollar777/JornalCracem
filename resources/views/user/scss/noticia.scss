@@ -2,3 +2,33 @@
     margin-top: 1%;
     margin-bottom: 1%;
 }
+
+.img-noticias-texto p{
+    font-size: 1vw;
+}
+
+.div-noticia-span{
+    text-align: center;
+}
+
+.div-noticia-span span{
+    font-size: 2vw;
+}
+
+@media(max-width: 850px){
+    .div-noticia-span span{
+        font-size: 20px;
+    }
+    .img-noticias-texto p{
+        font-size: 18px;
+    }
+}
+
+@media(max-width: 410px){
+    .div-noticia-span span{
+        font-size: 18px;
+    }
+    .img-noticias-texto p{
+        font-size: 16px;
+    }
+}
