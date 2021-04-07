@@ -23,15 +23,6 @@
 
 <body>
 
-    <div class="dateNow">
-        <span>
-            @php
-                $mytime = Carbon\Carbon::now();
-                echo $mytime->format('j \\d\\e F \\d\\e Y');
-            @endphp
-        </span>
-    </div>
-
     {{-- o cabeçário com a imagem --}}
 
     <header>
@@ -41,6 +32,17 @@
                 </div>
             </div> 
     </header>
+
+    <div class="dateNow">
+        <span>Fundador: Jorge Neves | </span>
+        <span id="cotacao"></span>
+        <span>
+            @php
+                $mytime = Carbon\Carbon::now();
+                echo $mytime->format('j \\d\\e F \\d\\e Y');
+            @endphp
+        </span>
+    </div>
 
 
     <nav>
@@ -106,6 +108,23 @@
             if (largura > 850) {
                $('#sidebar-toggle').prop("checked", false)     
             }
+        })
+
+        $(document).ready(function(){
+            const cotacaoDolar = $('#cotacao')
+            const urlCotacao = "https://economia.awesomeapi.com.br/json/all"
+
+            const options = {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'default'
+            }
+
+            fetch(urlCotacao, options)
+            .then( response => { response.json()
+                .then( data => cotacaoDolar.html("Dolar: R$ " + data["USD"].high + " | Euro: R$ " + data["EUR"].high + " | "))
+            })
+            .catch( e => console.log("erro" + e.message))
         })
 
     </script>
