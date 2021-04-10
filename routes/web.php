@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\NoticiaController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\HomeController;
+use App\Models\Noticia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +30,11 @@ Route::get('/exibir/noticias', [ClientController::class, 'exibirAll'])->name('us
 Route::get('/exibir/gata-mangaba', [ClientController::class, 'gataExibir'])->name('user.gata');
 Route::get('/exibir/social', [ClientController::class, 'social'])->name('user.social');
 
+Route::get('/admin/noticias', [NoticiaController::class, 'index'])->name('admin.noticias');
+Route::get('/admin/noticias/criar', [NoticiaController::class, 'create'])->name('admin.noticia.create');
+Route::post('/admin/noticias/criar', [NoticiaController::class, 'store'])->name('admin.noticias.salvar');
+
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/admin', [HomeController::class, 'index'])->name('home');

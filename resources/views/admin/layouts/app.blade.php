@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link href="{{ asset('user/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -78,6 +79,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+
     </div>
 </body>
 </html>
