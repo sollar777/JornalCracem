@@ -2,16 +2,16 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container div-form-noticia">
         <form action="{{route('admin.noticias.salvar')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="">Título da notícia</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="titulo">
             </div>
             <div class="form-group">
                 <label for="">Resumo da notícia</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="resumo">
             </div>
             <div class="form-group">
                 <label for="">Corpo da notícia</label>
@@ -19,13 +19,15 @@
             </div>
             <div class="form-group">
                 <label class="form-group">Grupo de Noticia</label>
-                <select name="grupo" class="form-control">
-                    <option value="0">Teste</option>
+                <select name="grupo_id" class="form-control">
+                    @foreach ($grupos as $grupo)    
+                        <option value="{{$grupo->id}}">{{$grupo->nome}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">
                 <label class="form-group">Noticia Principal</label>
-                <input type="checkbox" class="" name="principal">
+                <input type="checkbox" class="check-principal" name="noticia_principal">
             </div>
             <div class="form-group">
                 <label for="">Imagem da notícia</label>

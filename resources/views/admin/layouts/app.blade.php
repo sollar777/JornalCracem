@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link href="{{ asset('user/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">

@@ -3,11 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Grupo_Noticia;
+use App\Models\Imagem;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
 
 class NoticiaController extends Controller
 {
+    private $noticias;
+    
+    public function __construct(Noticia $noticias)
+    {
+        $this->noticias = $noticias;
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +24,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        $noticias = Noticia::all();
+        $noticias = $this->noticias->all();
 
         return view('admin.noticias.index', compact("noticias"));
     }
@@ -27,7 +36,8 @@ class NoticiaController extends Controller
      */
     public function create()
     {
-        return view('admin.noticias.create-noticia');
+        $grupos = Grupo_Noticia::all();
+        return view('admin.noticias.create-noticia', compact("grupos"));
     }
 
     /**
@@ -38,8 +48,31 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
+        if(!$request->file('imagem')){
+            return response()->json(["message" => "Não foi enviado nenhuma Imagem"]);
+        }
         //faltando criar rotina de salvar a noticia e a imagem com id da noticia
-        dd($request->file());
+        if(!$request->file('imagem')->isValid()){
+            return response()->json(["message" => "Imagem não é válida"]);
+        }
+
+        $data = $request->all();
+        
+        $noticia = $this->noticias->create([
+            "titulo" => $data["titulo"],
+            "resumo" => $data["resumo"],
+            "corpo" => $data["corpo"],
+            "grupo_id" => $data["grupo_id"],
+            "noticia_principal" => ($data["noticia_principal"] = "on") ? -1 : 0
+        ]);
+
+        $imagem = new Imagem;
+
+        $imagem->create([
+            "path" => $request->file("imagem")->store('noticias/imagem/' . $noticia->id),
+            "noticia_id" => $noticia->id
+        ]);
+
     }
 
     /**
