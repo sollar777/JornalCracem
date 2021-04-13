@@ -7,6 +7,7 @@ use App\Models\Grupo_Noticia;
 use App\Models\Imagem;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NoticiaController extends Controller
 {
@@ -57,13 +58,18 @@ class NoticiaController extends Controller
         }
 
         $data = $request->all();
-        
+        $noticia_principal = 0;
+
+        if($request->has('noticia_principal')){
+            $noticia_principal = -1;
+        }
+
         $noticia = $this->noticias->create([
             "titulo" => $data["titulo"],
             "resumo" => $data["resumo"],
             "corpo" => $data["corpo"],
             "grupo_id" => $data["grupo_id"],
-            "noticia_principal" => ($data["noticia_principal"] = "on") ? -1 : 0
+            "noticia_principal" => $noticia_principal
         ]);
 
         $imagem = new Imagem;
@@ -72,6 +78,8 @@ class NoticiaController extends Controller
             "path" => $request->file("imagem")->store('noticias/imagem/' . $noticia->id),
             "noticia_id" => $noticia->id
         ]);
+
+        return redirect()->route('admin.noticias');
 
     }
 
@@ -94,7 +102,10 @@ class NoticiaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $noticia = $this->noticias->find($id);
+        $grupos = Grupo_Noticia::all();
+
+        return view('admin.noticias.edit-noticia', compact('noticia', 'grupos'));
     }
 
     /**
@@ -106,7 +117,43 @@ class NoticiaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $noticia = $this->noticias->find($id);
+        $data = $request->all();
+        $file = $noticia->imagens->path;
+
+        if($request->has('imagem')){
+            if($request->file('imagem')->isValid()){
+                $noticia->imagens->delete();
+                
+                Storage::delete($file);
+                
+                $imagem = New Imagem;
+    
+                $imagem->create([
+                    "path" => $request->file('imagem')->store('noticias/imagem/' . $noticia->id),
+                    "noticia_id" => $noticia->id
+                ]);
+            }else{
+                return response()->json(["message" => "mensagem invalida"]);
+            }
+        }
+
+        $noticia_principal = 0;
+
+        if($request->has('noticia_principal')){
+            $noticia_principal = -1;
+        }
+
+        $noticia->update([
+            "titulo" => $data["titulo"],
+            "resumo" => $data["resumo"],
+            "corpo" => $data["corpo"],
+            "grupo_id" => $data["grupo_id"],
+            "noticia_principal" => $noticia_principal
+        ]);
+
+        return redirect()->route('admin.noticias');
+
     }
 
     /**

@@ -33,6 +33,8 @@ Route::get('/exibir/social', [ClientController::class, 'social'])->name('user.so
 Route::get('/admin/noticias', [NoticiaController::class, 'index'])->name('admin.noticias');
 Route::get('/admin/noticias/criar', [NoticiaController::class, 'create'])->name('admin.noticia.create');
 Route::post('/admin/noticias/criar', [NoticiaController::class, 'store'])->name('admin.noticias.salvar');
+Route::get('/admin/noticias/editar/{id}', [NoticiaController::class, 'edit'])->name('admin.noticia.editar');
+Route::put('/admin/noticias/atualizar/{id}', [NoticiaController::class, 'update'])->name('admin.noticia.atualizar');
 
 
 Auth::routes();

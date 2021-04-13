@@ -11,22 +11,22 @@
                 <th>Grupo</th>
                 <th>Editar</th>
             </tr>
-            <tr>
-                @foreach ($noticias as $noticia)
+            @foreach ($noticias as $noticia)
+                <tr>
                     <td>{{ $noticia->titulo }}</td>
                     <td>{{ $noticia->resumo }}</td>
                     <td>{{ $noticia->corpo }}</td>
                     <td>
-                        @if ($noticia->noticia_principal)
-                            sim
+                        @if ($noticia->noticia_principal != 0)
+                            Sim
                         @else
                             Não
                         @endif
                     </td>
                     <td>{{ $noticia->grupo_noticia->nome }}</td>
-                    <td><a href="#" class="btn btn-success">Editar</a></td>
-                @endforeach
-            </tr>
+                    <td><a href="{{route('admin.noticia.editar', ['id' => $noticia->id])}}" class="btn btn-success">Editar</a></td>
+                </tr>
+            @endforeach
         </table>
 
     </div>
