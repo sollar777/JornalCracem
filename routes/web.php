@@ -29,6 +29,7 @@ Route::get('/exibir/noticias/{id}', [ClientController::class, 'store'])->name('u
 Route::get('/exibir/noticias', [ClientController::class, 'exibirAll'])->name('user.noticias');
 Route::get('/exibir/gata-mangaba', [ClientController::class, 'gataExibir'])->name('user.gata');
 Route::get('/exibir/social', [ClientController::class, 'social'])->name('user.social');
+Route::get('/buscar/anunciantes', [ClientController::class, 'anunciantes'])->name('user.anunciantes');
 
 Route::get('/admin/noticias', [NoticiaController::class, 'index'])->name('admin.noticias');
 Route::get('/admin/noticias/criar', [NoticiaController::class, 'create'])->name('admin.noticia.create');

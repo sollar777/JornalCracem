@@ -8,24 +8,24 @@
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            @foreach ($noticias as $key => $noticia)
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{ $key }}" @if ($key == 0) class="active" @endif></li>
+            @endforeach
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Teste</h5>
-                    <p>Teste de texto da imagem</p>
+
+            @foreach ($noticias as $key => $noticia)
+
+                <div @if ($key == 0) class="carousel-item active"
+                @else
+                            class="carousel-item" @endif>
+                    <img class="d-block w-100" src="{{ env('APP_URL') }}/storage/{{ $noticia->imagens->path }}" alt="">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ $noticia->titulo }}</h5>
+                        <p>{{ $noticia->resumo }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Teste 2</h5>
-                    <p>Teste de texto da imagem do segundo item</p>
-                </div>
-            </div>
+            @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -37,6 +37,8 @@
         </a>
     </div>
 
+    {{-- ----------- fim do carrocel --------------- --}}
+
     <div class="div-index-border">
 
         <div id="index-h3-politica">
@@ -44,95 +46,43 @@
         </div>
 
         <div class="row div-index-noticias">
-            <div class="col-md-4">
-                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                    <div class="card-header">
-                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            cards
-                            content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                    <div class="card-header">
-                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            cards
-                            content.</p>
+            @foreach ($noticias as $noticia)
+                <div class="col-md-4">
+                    <div class="card bg-light mb-3" style="max-width: 25rem;">
+                        <div class="card-header">
+                            <img class="card-img" src="{{ env('APP_URL') }}/storage/{{ $noticia->imagens->path }}"
+                                alt="Card image">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $noticia->titulo }}</h5>
+                            <p class="card-text">{{ $noticia->resumo }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                    <div class="card-header">
-                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            cards
-                            content.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
-
-
+    
     <div class="div-index-border">
 
         <div id="index-h3-esportes">
             <span>Esportes</span>
         </div>
-
         <div class="row div-index-noticias">
-            <div class="col-md-4">
-                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                    <div class="card-header">
-                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            cards
-                            content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                    <div class="card-header">
-                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            cards
-                            content.</p>
+            @foreach ($noticias as $noticia)
+                <div class="col-md-4">
+                    <div class="card bg-light mb-3" style="max-width: 25rem;">
+                        <div class="card-header">
+                            <img class="card-img" src="{{ env('APP_URL') }}/storage/{{$noticia->imagens->path}}"
+                                alt="Card image">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{$noticia->titulo}}</h5>
+                            <p class="card-text">{{$noticia->resumo}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                    <div class="card-header">
-                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            cards
-                            content.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 

@@ -26,11 +26,12 @@
     {{-- o cabeçário com a imagem --}}
 
     <header>
-            <div class="div-header">
-                <div id="image-cabecalho">
-                    <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid" alt="Imagen Responsiva">
-                </div>
-            </div> 
+        <div class="div-header">
+            <div id="image-cabecalho">
+                <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" class="img-fluid"
+                    alt="Imagen Responsiva">
+            </div>
+        </div>
     </header>
 
     <div class="dateNow">
@@ -52,22 +53,22 @@
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href="{{route('user.index')}}" style="text-decoration: none">
+                        <a href="{{ route('user.index') }}" style="text-decoration: none">
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('user.noticias')}}" style="text-decoration: none">
+                        <a href="{{ route('user.noticias') }}" style="text-decoration: none">
                             <span>Noticias</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('user.gata')}}" style="text-decoration: none">
+                        <a href="{{ route('user.gata') }}" style="text-decoration: none">
                             <span>Gata Mangaba</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('user.social')}}" style="text-decoration: none">
+                        <a href="{{ route('user.social') }}" style="text-decoration: none">
                             <span>Social</span>
                         </a>
                     </li>
@@ -84,14 +85,9 @@
             </div>
 
             {{-- div para os comerciais --}}
-            <div class="div-anuncios-all">
+            <div class="div-anuncios-all" id="div-anuncios">
                 <span> Anunciantes </span>
                 <hr>
-                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                    <div class="card-header">
-                        <img class="card-img" src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Card image">
-                    </div>
-                </div>
             </div>
         </div>
     </main>
@@ -101,16 +97,15 @@
     <script src="{{ asset('js/bootstrap.js') }}"></script>
 
     <script>
-
-        $(window).resize(function(){
+        $(window).resize(function() {
             var largura = $(window).width();
 
             if (largura > 850) {
-               $('#sidebar-toggle').prop("checked", false)     
+                $('#sidebar-toggle').prop("checked", false)
             }
         })
 
-        $(document).ready(function(){
+        $(document).ready(function() {
             const cotacaoDolar = $('#cotacao')
             const urlCotacao = "https://economia.awesomeapi.com.br/json/all"
 
@@ -121,10 +116,31 @@
             }
 
             fetch(urlCotacao, options)
-            .then( response => { response.json()
-                .then( data => cotacaoDolar.html("Dolar: R$ " + data["USD"].high + " | Euro: R$ " + data["EUR"].high + " | "))
+                .then(response => {
+                    response.json()
+                        .then(data => cotacaoDolar.html("Dolar: R$ " + data["USD"].high + " | Euro: R$ " +
+                            data["EUR"].high + " | "))
+                })
+                .catch(e => console.log("erro" + e.message))
+
+            $.ajax({
+                url: "{{ route('user.anunciantes') }}",
+                type: "get",
+                dataType: "json"
+            }).done(function(data) {
+                var cols = ""
+                $.each(data, function(e) {
+                    cols += "<div class='card bg-light mb-3' style='max-width: 25rem;'>";
+                    cols += "<div class='card-header'>";
+                    cols += "<img class='card-img' src='{{ env('APP_URL') }}/storage/client/imagem/teste.jpg' alt='Card image'>";
+                    cols += "</div>";
+                    cols += "</div>";
+                })
+                $("#div-anuncios").append(cols);
+            }).fail(function(e) {
+                console.log("error: " + e);
             })
-            .catch( e => console.log("erro" + e.message))
+
         })
 
     </script>

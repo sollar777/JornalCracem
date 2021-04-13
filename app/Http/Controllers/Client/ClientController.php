@@ -4,12 +4,21 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Noticia;
 
 class ClientController extends Controller
 {
+    private $noticias;
+
+    public function __construct(Noticia $noticias)
+    {
+        $this->noticias = $noticias;
+    }
+
     public function index()
     {
-        return view('user.index');
+        $noticias = $this->noticias->all();
+        return view('user.index', compact('noticias'));
     }
 
     public function store($id)
@@ -31,5 +40,12 @@ class ClientController extends Controller
     {
         return view('user.social');
 
+    }
+
+    public function anunciantes()
+    {
+        $anunciantes = $this->noticias->all();
+
+        return response()->json($anunciantes);
     }
 }
