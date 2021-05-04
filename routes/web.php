@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AnuncioController;
 use App\Http\Controllers\Admin\NoticiaController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\HomeController;
@@ -36,6 +37,12 @@ Route::get('/admin/noticias/criar', [NoticiaController::class, 'create'])->name(
 Route::post('/admin/noticias/criar', [NoticiaController::class, 'store'])->name('admin.noticias.salvar');
 Route::get('/admin/noticias/editar/{id}', [NoticiaController::class, 'edit'])->name('admin.noticia.editar');
 Route::put('/admin/noticias/atualizar/{id}', [NoticiaController::class, 'update'])->name('admin.noticia.atualizar');
+
+Route::get('/admin/anuncios/exibir', [AnuncioController::class, 'index'])->name('admin.anuncio.exibir');
+Route::get('/admin/anuncios/criar', [AnuncioController::class, 'create'])->name('admin.anuncio.create');
+Route::post('/admin/anuncios/salvar', [AnuncioController::class, 'store'])->name('admin.anuncio.save');
+Route::get('/admin/anuncios/editar/{id}', [AnuncioController::class, 'edit'])->name('admin.anuncio.edit');
+Route::put('/admin/anuncios/atualizar/{id}', [AnuncioController:: class, 'update'])->name('admin.anuncio.atualizar');
 
 
 Auth::routes();

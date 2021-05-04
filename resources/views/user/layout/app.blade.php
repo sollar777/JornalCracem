@@ -88,6 +88,13 @@
             <div class="div-anuncios-all" id="div-anuncios">
                 <span> Anunciantes </span>
                 <hr>
+                @foreach ($anuncios as $anuncio)
+                <div class="card bg-light mb-3" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <img src="{{ env('APP_URL') }}/storage/{{$anuncio->path}}" alt="Card image" class="card-img">
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
     </main>
@@ -123,23 +130,6 @@
                 })
                 .catch(e => console.log("erro" + e.message))
 
-            $.ajax({
-                url: "{{ route('user.anunciantes') }}",
-                type: "get",
-                dataType: "json"
-            }).done(function(data) {
-                var cols = ""
-                $.each(data, function(e) {
-                    cols += "<div class='card bg-light mb-3' style='max-width: 25rem;'>";
-                    cols += "<div class='card-header'>";
-                    cols += "<img class='card-img' src='{{ env('APP_URL') }}/storage/client/imagem/teste.jpg' alt='Card image'>";
-                    cols += "</div>";
-                    cols += "</div>";
-                })
-                $("#div-anuncios").append(cols);
-            }).fail(function(e) {
-                console.log("error: " + e);
-            })
 
         })
 
