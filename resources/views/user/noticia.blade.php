@@ -4,12 +4,12 @@
 
     <div class="img-noticias-texto">
         <div id="img-noticia">
-            <img src="{{ env('APP_URL') }}/storage/client/imagem/teste.jpg" alt="Responsive image" class="img-fluid">
+            <img src="{{ env('APP_URL') }}/storage/{{ $noticia->imagens->path }}" alt="Responsive image" class="img-fluid">
         </div>
         <div class="div-noticia-span">
-            <span>Titulo da imagem</span>
+            <span>{{$noticia->titulo}}</span>
         </div>
-        <p>Texto de noticia da imagem</p>
+        <p>{{$noticia->corpo}}</p>
     </div>
 
 @endsection

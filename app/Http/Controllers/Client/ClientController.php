@@ -25,9 +25,7 @@ class ClientController extends Controller
     {
         $noticia = $this->noticias->find($id);
 
-        var_dump($noticia);
-        die;
-        return view('user.noticia');
+        return view('user.noticia', compact('noticia'));
     }
 
     public function exibirAll()
