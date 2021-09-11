@@ -19,7 +19,7 @@
                 <div @if ($key == 0) class="carousel-item active"
                 @else
                             class="carousel-item" @endif>
-                    <img class="d-block w-100" src="{{ env('APP_URL') }}/storage/{{ $noticia->imagens->path }}" alt="">
+                    <a href="{{route('user.exibir', ['id' => $noticia->id])}}"><img class="d-block w-100" src="{{ env('APP_URL') }}/storage/{{ $noticia->imagens->path }}" alt=""></a>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>{{ $noticia->titulo }}</h5>
                         <p>{{ $noticia->resumo }}</p>

@@ -2,6 +2,8 @@ FROM php:7.3-apache
 
 EXPOSE 80
 
+WORKDIR /var/www
+
 RUN apt-get -y update --fix-missing
 RUN apt-get upgrade -y
 
@@ -11,6 +13,8 @@ RUN apt-get -y install apt-utils nano wget dialog \
 RUN apt-get install -y \
     zlib1g-dev \
     libzip-dev
+
+ADD . /var/www
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -35,6 +39,9 @@ RUN apache2ctl graceful
 ## Configuracao EXT Zzip
 RUN docker-php-ext-configure zip --with-libzip \
     && docker-php-ext-install zip
+
+RUN chown -R www-data:www-data /var/www
+RUN chmod -R 775 /var/www
 
 # Enable apache modules
 RUN a2enmod rewrite headers

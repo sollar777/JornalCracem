@@ -23,6 +23,10 @@ class ClientController extends Controller
 
     public function store($id)
     {
+        $noticia = $this->noticias->find($id);
+
+        var_dump($noticia);
+        die;
         return view('user.noticia');
     }
 
