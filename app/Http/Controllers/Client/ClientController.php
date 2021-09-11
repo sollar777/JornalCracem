@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Noticia;
+use Facade\FlareClient\Http\Response;
 
 class ClientController extends Controller
 {
@@ -18,6 +19,7 @@ class ClientController extends Controller
     public function index()
     {
         $noticias = $this->noticias->all();
+
         return view('user.index', compact('noticias'));
     }
 
