@@ -2,30 +2,22 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Repository\Contract\ClientContractInterface;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Noticia;
-use Facade\FlareClient\Http\Response;
 
 class ClientController extends Controller
 {
-    private $noticias;
 
-    public function __construct(Noticia $noticias)
+    public function index(ClientContractInterface $notice)
     {
-        $this->noticias = $noticias;
-    }
-
-    public function index()
-    {
-        $noticias = $this->noticias->all();
+        $noticias = $notice->all();
 
         return view('user.index', compact('noticias'));
     }
 
-    public function store($id)
+    public function store($id, ClientContractInterface $notice)
     {
-        $noticia = $this->noticias->find($id);
+        $noticia = $notice->store($id);
 
         return view('user.noticia', compact('noticia'));
     }
@@ -45,11 +37,5 @@ class ClientController extends Controller
         return view('user.social');
 
     }
-
-    public function anunciantes()
-    {
-        $anunciantes = $this->noticias->all();
-
-        return response()->json($anunciantes);
-    }
+    
 }

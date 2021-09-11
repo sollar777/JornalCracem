@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Anuncio;
 use App\Models\Imagem;
+use App\Repository\Contract\ClientContractInterface;
+use App\Repository\Eloquent\ClientRepository;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ClientContractInterface::class, ClientRepository::class);
     }
 
     /**
