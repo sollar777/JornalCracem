@@ -45,7 +45,6 @@
         </span>
     </div>
 
-
     <nav>
         <input type="checkbox" name="" id="sidebar-toggle">
         <div class="sidebar">
@@ -76,7 +75,6 @@
             </div>
         </div>
     </nav>
-
 
     <main>
         <div class="grid-container">
@@ -129,6 +127,26 @@
                             data["EUR"].high + " | "))
                 })
                 .catch(e => console.log("erro" + e.message))
+
+        
+        {{-- var controleNav = false;
+        let navbar = document.getElementById('navbar-teste');
+        let coordenada = navbar.getBoundingClientRect();
+
+        $(document).scroll(function(e){
+            var scrollTop = $(document).scrollTop();
+            if(scrollTop > coordenada['y']){
+                console.log(coordenada['y']);
+
+                if(controleNav == false){
+                    $('.navbar').removeClass('navbar-static-top').addClass('navbar-fixed-top');
+                    $('.navbar').hide();
+                    $('.navbar').fadeIn('slow');
+                    controleNav = true;
+                }
+            }
+        }); --}}
+
 
 
         })

@@ -32,7 +32,6 @@ body {
 nav {
   background: #023b74;
   color: #fff;
-  z-index: 100;
   left: 0;
 }
 
@@ -40,30 +39,28 @@ nav {
   height: 60px;
   width: 100%;
   position: relative;
-  left: 0;
-  transition: width 500ms;
-  margin-top: 0.5rem;
 }
 
 .sidebar-menu {
   position: relative;
   padding: 1rem;
+  text-align: center;
 }
 
-.sidebar li {
-  padding: 0rem 2rem;
-  float: left;
+.sidebar-menu li {
+  padding: 0rem 5rem;
+  display: inline;
 }
 
-.sidebar a {
+.sidebar-menu li a {
   color: #fff;
-  font-size: 0.9rem;
-  display: block;
+  font-size: 20px;
+  display: inline-block;
+  transition: all 0.3s;
 }
 
 .sidebar a:hover {
-  background-color: powderblue;
-  color: black;
+  color: #868b8f;
 }
 
 header {
@@ -247,8 +244,13 @@ hr {
     width: auto;
     align-items: left;
     padding: 1rem 1rem;
-    border-bottom: 1px solid #808080;
-    box-shadow: 0px 1px 5px -2px #808080;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  .sidebar-menu ul li a:hover {
+    background-color: silver;
+    color: black;
   }
 
   .grid-container {

@@ -31,39 +31,38 @@ body{
 nav{
     background: rgb(2, 59, 116);
     color: #fff;
-    z-index: 100;
     left: 0;
 }
 
 .sidebar{
     height: 60px;
     width: 100%;
+    //margin-top: .5rem;
     position: relative;
-    left: 0;
-    transition: width 500ms;
-    margin-top: .5rem;
 }
 
 .sidebar-menu{
     position: relative;
     padding: 1rem;
+    text-align: center;
 }
 
-.sidebar li{
-    padding: 0rem 2rem;
-    float: left;
+.sidebar-menu li{
+   padding: 0rem 5rem;
+    display: inline;
 }
 
-.sidebar a{
+.sidebar-menu li a{
     color: #fff;
-    font-size: .9rem;
-    display: block;
-}
+    font-size: 20px;
+    display: inline-block;
+    transition: all .3s;
+ }
 
 .sidebar a:hover{
-    background-color: rgb(176, 224, 230);
-    color: black;
+    color:rgb(134, 139, 143)
 }
+ 
 
 header{
     position: relative;
@@ -260,10 +259,17 @@ hr{
         width: auto;
         align-items: left;
         padding: 1rem 1rem;
+        display: block;
+        transition: all .3s;
         // border-bottom: 1px solid rgb(1, 24, 88);
-        border-bottom: 1px solid #808080;
-        -webkit-box-shadow: 0px 1px 5px -2px #808080; 
-        box-shadow: 0px 1px 5px -2px #808080;
+        // border-bottom: 1px solid #808080;
+        // -webkit-box-shadow: 0px 1px 5px -2px #808080; 
+        // box-shadow: 0px 1px 5px -2px #808080;
+    }
+
+    .sidebar-menu ul li a:hover{
+        background-color: silver;
+        color: black;
     }
 
     .grid-container{
